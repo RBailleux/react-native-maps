@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import {
   View,
-  Text,
   TextInput,
   TouchableOpacity,
   StyleSheet
 } from "react-native";
+import { Input, Button, Text } from 'native-base';
 
 const styles = StyleSheet.create({
   root: {
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     marginRight: 20
   }
 });
-export default class Input extends Component {
+export default class PlaceInput extends Component {
   constructor() {
     super();
     this.addHandler = this.addHandler.bind(this);
@@ -45,16 +45,16 @@ export default class Input extends Component {
   render() {
     return (
       <View style={styles.root}>
-        <TextInput
+        <Input
           style={styles.input}
           placeholder="Enter a destination"
           underlineColorAndroid="transparent"
           onChangeText={text => this.setState({ text })}
           value={this.state.text}
         />
-        <TouchableOpacity style={styles.button} onPress={this.addHandler}>
+        <Button style={styles.button} onPress={this.addHandler}>
           <Text>Add</Text>
-        </TouchableOpacity>
+        </Button>
       </View>
     );
   }

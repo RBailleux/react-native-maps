@@ -1,23 +1,32 @@
 import React from "react";
-import { Text, StyleSheet, TouchableOpacity } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
+import { Card, CardItem, Text, Icon, Button, Right } from 'native-base';
 
 const styles = StyleSheet.create({
   item: {
     fontSize: 32
   },
   itemVisited: {
-    textDecorationLine: "line-through"
+    backgroundColor: "#62B1F6"
+  },
+  itemNotVisited: {
+
   }
 });
 
 const Item = props => {
   const itemStyle = props.visited
-    ? [styles.item, styles.itemVisited]
-    : styles.item;
+    ? styles.itemVisited
+    : styles.itemNotVisited;
   return (
-    <TouchableOpacity onPress={props.onPress}>
-      <Text style={itemStyle}>{props.label}</Text>
-    </TouchableOpacity>
+      <CardItem style={itemStyle}>
+        <Button onPress={props.onPress} transparent>
+          <Text>{props.label}</Text>
+          <Right>
+            <Icon name="navigate"/>
+          </Right>
+        </Button>
+      </CardItem>
   );
 };
 

@@ -1,5 +1,6 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, StyleSheet, TouchableOpacity } from "react-native";
+import { Container, Header, Content, Button, Text } from 'native-base';
 
 const styles = StyleSheet.create({
   footer: {
@@ -10,37 +11,34 @@ const styles = StyleSheet.create({
     flexDirection: "row"
   },
   selected: {
-    backgroundColor: "#FFE163"
+    backgroundColor: "#62B1F6"
   },
-  text: {
-    paddingVertical: 2,
-    paddingHorizontal: 10,
-    borderWidth: 1,
-    borderColor: "#CCC"
+  unselected: {
+
   }
 });
 
-const Button = props => (
-  <TouchableOpacity onPress={props.onPress}>
-    <Text style={props.selected ? [styles.selected, styles.text] : styles.text}>
+const ActionButton = props => (
+  <Button onPress={props.onPress} style={props.selected ? styles.selected : styles.unselected}>
+    <Text>
       {props.label}
     </Text>
-  </TouchableOpacity>
+  </Button>
 );
 
 const Footer = props => (
   <View style={styles.footer}>
-    <Button
+    <ActionButton
       label="Visited"
       selected={props.selected === "visited"}
       onPress={props.onSelectFilter.bind(this, "visited")}
     />
-    <Button
+    <ActionButton
       label="New"
       onPress={props.onSelectFilter.bind(this, "new")}
       selected={props.selected === "new"}
     />
-    <Button
+    <ActionButton
       label="All"
       onPress={props.onSelectFilter.bind(this, "all")}
       selected={props.selected === "all"}

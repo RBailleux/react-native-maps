@@ -20,6 +20,7 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "native-base": "^2.3.5",
     "react": "16.0.0-beta.5",
     "react-native": "^0.49.5",
     "react-native-cli": "^2.0.1",

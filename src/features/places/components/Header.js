@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import Input from "./Input";
+import PlaceInput from "./Input";
 
 const styles = StyleSheet.create({
   header: {
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
 
 const Header = props => (
   <View style={styles.header}>
-    <Input onAdd={props.onAdd} />
+    <PlaceInput onAdd={props.onAdd} />
   </View>
 );
 export default Header;
